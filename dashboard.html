@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard Workflow</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    
+    <div id="login" class="step active">
+        <h2>Login/SignUp</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Enter your email" required><br>
+            <input type="password" id="password" placeholder="Enter your password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p id="loginError" class="error"></p>
+    </div>
+
+    
+    <div id="dashboard" class="step h2">
+        <h2>Admin Dashboard</h2>
+            <button onclick="nextStep('manageUsers')">Manage Users</button>
+            <button onclick="nextStep('viewEvents')">Manage Events</button>
+            <button onclick="nextStep('logout')">Logout</button></div>
+    </div>
+
+   
+    <div id="manageUsers" class="step">
+        <h2>View User List</h2>
+        <a href=""><button onclick="nextStep('modifyUser')">Modify User</button></a>
+        <a href=""><button onclick="nextStep('dashboard')">Return to Dashboard</button></a>
+        
+    </div>
+
+    
+    <div id="modifyUser" class="step">
+        <h2>Modify User</h2>
+        <button onclick="nextStep('editUserDetails')">Edit User Details</button>
+        <button onclick="nextStep('dashboard')">Cancel</button>
+    </div>
+
+    
+    <div id="editUserDetails" class="step">
+        <h2>Edit User Details</h2>
+        <p>User details updated successfully!</p>
+        <button onclick="nextStep('dashboard')">Save & Return</button>
+    </div>
+
+    
+    <div id="viewEvents" class="step">
+        <h2>Manage Events</h2>
+        <button onclick="nextStep('completedEvents')">Completed Events</button>
+        <button onclick="nextStep('upcomingEvents')">Upcoming Events</button>
+    </div>
+
+    
+    <div id="completedEvents" class="step">
+        <h2>Successfully Completed Events</h2>
+        <button onclick="nextStep('feedback')">Event Feedback</button>
+        <button onclick="nextStep('dashboard')">Return to Dashboard</button>
+    </div>
+
+    
+    <div id="upcomingEvents" class="step">
+        <h2>Upcoming Events</h2>
+        <button onclick="nextStep('analytics')">View Analytics</button>
+        <button onclick="nextStep('dashboard')">Return to Dashboard</button>
+    </div>
+
+    
+    <div id="feedback" class="step">
+        <h2>Event Feedback</h2>
+        <p>Feedback submitted successfully!</p>
+        <button onclick="nextStep('dashboard')">Return to Dashboard</button>
+    </div>
+
+   
+    <div id="analytics" class="step">
+        <h2>View Analytics</h2>
+        <p>Displaying event statistics...</p>
+        <button onclick="nextStep('logout')">Logout</button>
+    </div>
+
+    
+    <div id="logout" class="step">
+        <h2>Logout/SignOut</h2>
+        <p>You have been logged out successfully!</p>
+        <button onclick="nextStep('login')">Return to Login</button>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
